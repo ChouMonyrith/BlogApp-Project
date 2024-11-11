@@ -175,3 +175,79 @@ a.create-post {
 a.create-post:hover {
   background-color: #2980b9;
 }
+
+/* Post actions */
+.post-actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Button styles */
+.button,
+button,
+.edit-button,
+.delete-button,
+.create-post {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  height: 40px;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+/* Primary button (Create, Submit) */
+.button-primary,
+.create-post {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.button-primary:hover,
+.create-post:hover {
+  background-color: #2980b9;
+}
+
+/* Edit button */
+.edit-button {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+.edit-button:hover {
+  background-color: #27ae60;
+}
+
+/* Delete button */
+.delete-button {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
+}
+
+/* Fix for forms with inline buttons */
+.delete-form {
+  display: inline-block;
+}
+
+/* Button container for multiple buttons */
+.post-actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.post-actions .delete-form {
+  background: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}

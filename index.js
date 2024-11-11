@@ -36,6 +36,40 @@ app.post("/create", (req, res) => {
   res.redirect("/");
 });
 
+app.get("/edit/:id", (req, res) => {
+  const post = posts.find((p) => p.id == req.params.id);
+  if (post) {
+    res.render("pages/edit", { post });
+  } else {
+    res.status(404).send("Post Not Found");
+  }
+});
+
+app.post("/edit/:id", (req, res) => {
+  const index = posts.findIndex((p) => p.id == req.params.id);
+  if (index !== -1) {
+    posts[index] = {
+      ...posts[index],
+      title: req.body.title,
+      content: req.body.content,
+    };
+    res.redirect("/post/" + req.params.id);
+  } else {
+    res.status(404).send("Post Not Found");
+  }
+});
+
+app.post("/delete/:id", (req, res) => {
+  const index = posts.findIndex((p) => p.id == req.params.id);
+
+  if (index !== -1) {
+    posts.splice(index, 1);
+    res.redirect("/");
+  } else {
+    res.status(404).send("Post Not Found");
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port} `);
 });
