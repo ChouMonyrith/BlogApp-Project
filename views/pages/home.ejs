@@ -1,0 +1,14 @@
+<%- include("../partials/header.ejs") %>
+<h1>List Of Blog</h1>
+<div class="posts">
+  <% posts.forEach(post => { %>
+  <div class="post">
+    <h2>
+      <a href="/post/<%= post.id %>"><%= post.title %></a>
+    </h2>
+    <p><%=post.content.slice(0,100)%>...</p>
+  </div>
+  <%});%>
+</div>
+
+<%- include("../partials/footer.ejs") %>
